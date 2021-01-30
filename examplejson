@@ -1,0 +1,25 @@
+{
+    game_id : 89952,
+    gameInformation : {
+        gameType : "normal",
+        player1_id: 8949861,
+        player2_id: 8789461,
+        playerTurn: player1,
+        startTime,
+        endTime,
+        winner
+    }
+    pieces : [
+        {
+            player: 1 
+            x: 5,
+            y: 1
+        },
+        {
+            player: 2
+            x: 5,
+            y: 2
+        }
+        ....
+    ]
+}

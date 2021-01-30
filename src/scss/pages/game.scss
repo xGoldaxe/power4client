@@ -1,0 +1,111 @@
+$gameBg: rgb(124, 123, 228);
+
+.wholeGame {
+    width: min-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game {
+    width: 100vw;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    .game__type {
+        margin-block-start: 0;
+        margin-block-end: 0;
+        font-size: 50px;
+        font-weight: 900;
+
+        
+        background-color: darken(rgb(129, 129, 129), 5%);
+        border-radius: 10px;
+
+        padding: 5px 20px;
+        margin: 20px 0;
+        position: relative;
+        z-index: 2;
+        // &__bg {
+        //     position: absolute;
+        //     top: 20%;
+        //     left: 5%;
+        //     width: 100%;
+        //     height: 100%;
+        //     border-radius: 10px;
+        //     background-color: darken(rgb(129, 129, 129), 15%);
+        // }
+    }
+}
+.gameContainer {
+
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    
+    width: 700px;
+    height: 600px;
+
+    border-radius: 20px;
+    border: 20px solid rgb(40, 40, 73);
+    border-top: none;
+
+    padding-top: 20px;
+    background: $gameBg;
+    &__case {
+        width: 100%;
+        height: 100%;
+        background: $gameBg;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &__interior {
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            background-color: $background;
+        }
+    }
+}
+
+.pawn {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    &__interior {
+        width: 80%;
+        height: 80%;
+        border-radius: 50%;
+        &__host {
+            background: $yellow;
+        }
+        &__opponent {
+            background: $red;
+        }
+    }
+}
+
+.afkAdvertisor {
+    position: absolute;
+    z-index: 2;
+    top: 10%;
+    right: -40%;
+    background: $darkBackground;
+    width: 310px;
+    font-size: 20px;
+    text-align: left;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px darken($darkBackground, 30%);
+    div {
+        display: inline;
+    }
+}

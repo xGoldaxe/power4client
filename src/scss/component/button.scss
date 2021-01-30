@@ -1,0 +1,29 @@
+.createGameButton {
+    position: relative;
+    width : 500px;
+    height : 100px;
+    background-color: $darkBackground;
+    border-radius: 10px;
+    border: none;
+    border-bottom: 3px solid black;
+    outline: none;
+    cursor: pointer;
+    margin-top: 20px;
+
+    font-size: 50px;
+    font-weight: 900;
+    color: $textColor;
+
+    transition: linear .05s;
+    transition-property: box-shadow, transform;
+
+    text-decoration: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+        box-shadow: -3px 5px 10px darken($background, 50%);
+        transform: translate(3px, -5px);
+    }
+}

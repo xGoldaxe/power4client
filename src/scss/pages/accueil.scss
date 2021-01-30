@@ -1,0 +1,197 @@
+.notConnectedWindow {
+    display: flex;
+    flex-direction: column;
+    font-size: 50px;
+    &__link {
+        color: $textColor;
+        text-decoration: none;
+        font-size: 80px;
+        text-align: center;
+    }
+}
+
+.accueil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-sizing: border-box;
+    padding-top: 30vh;
+
+    background: rgb(172,160,160);
+    background: linear-gradient(180deg,$background 0%, rgb(94, 91, 91) 100%);
+    min-height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+}
+
+
+.pvGame--container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    z-index: 3;
+}
+.pvGame {
+    position: relative;
+    max-width: 1000px;
+    width: 90vw;
+    height: 500px;
+    background: white;
+    border-radius: 5px;
+
+    margin-top: 40px;
+
+    &__background {
+        background-color: rgb(44, 44, 44);
+        opacity: 0.8;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+    &__tab {
+        display: flex;
+        width: 100%;
+        div {
+            width: 50%;
+            height: 60px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 35px;
+            cursor: pointer;
+        }
+        &__notSelected {
+            background: $darkBackground;
+        }
+        &__selected {
+            background: darken($darkBackground, 10%);
+        }
+    }
+    &__create {
+        width: 100%;
+        height: 100%;
+        display : flex;
+        flex-direction: column;
+        align-items: center;
+        h2 {
+            font-size: 50px;
+            margin-block-end: 0;
+        }
+        button {
+            width: 50%;
+            height: 75px;
+            position: absolute;
+            bottom: 75px;
+            border: none;
+            outline: none;
+            color: $textColor;
+            background: darken(white, 30%);
+            border: 3px solid $textColor;
+            font-size: 40px;
+            cursor: pointer;
+        }
+        p {
+            margin-block-start: 7px;
+            color: green;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        &__linkAndError {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            p {
+                color: red;
+                font-size: 20px;
+            }
+        }
+        &__linkBox {
+            margin-top: 42px;
+            display: flex;
+            cursor: pointer;
+            position: relative;
+            &__text{
+                font-size: 40px;
+                border: 3px solid $textColor;
+                padding: 5px 15px;
+                background: darken(white, 15%);
+            }
+            &__copy {
+                font-size: 40px;
+                border: 3px solid $textColor;
+                border-left: none;
+                padding: 5px 15px;
+                background: darken(white, 30%);
+            }
+        }
+        input {
+            margin-top: 42px;
+            display: flex;
+            cursor: pointer;
+            position: relative;
+            width: 60%;
+            height: 50px;
+            font-size: 40px;
+            border: 3px solid $textColor;
+            padding: 5px 15px;
+            background: darken(white, 15%);
+            color: $textColor;
+            outline: none;
+
+            transition: ease-in-out .2s;
+            transition-property: background, box-shadow;
+            &:focus {
+                background: darken(white, 0%);
+                box-shadow: 0 0 20px darken(white, 50%);
+            }
+        }
+        &__time {
+            border: 3px solid $textColor;
+            font-size: 40px;
+            font-weight: 600;
+            padding: 3px 15px;
+        }
+        &__timeContainer {
+            margin-top: 45px;
+            width: 80%;
+            display: flex;
+            justify-content: space-around;
+            &__block {
+                border: 3px solid $textColor;
+                font-size: 40px;
+                font-weight: 600;
+                padding: 3px 15px;
+                margin-top: 25px;
+                cursor: pointer;
+                user-select: none;
+                &__selected {
+                    background :darken(white, 30%);
+                }
+            }
+        }
+        &__queue {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            h3 {
+                font-size: 90px;
+                position: block;
+                margin-block-start: 50px;
+                margin-block-end: 20px;
+            }
+        }
+    }
+}

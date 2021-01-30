@@ -1,0 +1,26 @@
+.createdGames {
+    border: 2px solid black;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: 20px 0;
+        p {
+            margin-block-start: 0;
+            margin-block-end: 0;
+        }
+        button {
+            background: rgb(199, 96, 96);
+            width: 20%;
+            border-radius: 20px;
+            border-color: black;
+            cursor: pointer;
+        }
+        background: rgb(173, 173, 173);
+        &:nth-child(2n){
+            background: rgb(141, 140, 140);
+        }
+    }
+}

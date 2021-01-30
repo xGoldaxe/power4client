@@ -1,0 +1,21 @@
+.game__players {
+    width: 100%;
+    display: flex;
+    &__player {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        height: 8vh;
+        font-size: 40px;
+        p {
+            margin-left: 50px;
+        }
+        &__left {
+            justify-content: flex-start;
+        }
+        &__right {
+            justify-content: flex-end;
+        }
+    }
+    
+}

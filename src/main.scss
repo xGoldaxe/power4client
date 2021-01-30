@@ -1,0 +1,30 @@
+//utils
+@import './scss/utils/font.scss';
+@import './scss/utils/colors';
+
+
+//base
+@import './scss/base/body.scss';
+@import './scss/base/header.scss';
+@import './scss/base/loader.scss';
+
+
+
+//component
+@import './scss/component/form.scss';
+@import './scss/component/createdGames.scss';
+@import './scss/component/winnerModal.scss';
+@import './scss/component/playableLine.scss';
+@import './scss/component/playerTurn.scss';
+@import './scss/component/gamePlayers.scss';
+@import './scss/component/button.scss';
+
+
+
+//page 
+@import './scss/pages/accueil.scss';
+@import './scss/pages/game.scss';
+@import './scss/pages/404.scss';
+@import './scss/pages/profile.scss';
+
+
