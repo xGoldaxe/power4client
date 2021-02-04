@@ -18,7 +18,7 @@ function App() {
   
   useEffect(() => {
     verifyUser(setUser)
-    setSocket(io('http://localhost:8080'))
+    setSocket(io('https://ultimatepower4.herokuapp.com/'))
   }, [])
 
   const value = useMemo(() => ({user, setUser}), [])

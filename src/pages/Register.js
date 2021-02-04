@@ -32,7 +32,7 @@ export default function Register() {
             setPseudoError(false)
             setPassError(false)
             setPseudoAlreadyUse(false)
-            let response = await fetch('http://localhost:8080/api/auth/signup', {
+            let response = await fetch('https://ultimatepower4.herokuapp.com/api/auth/signup', {
                 headers: {
                     "Content-type": "application/json;charset=UTF-8",
                     'Accept': 'application/json'

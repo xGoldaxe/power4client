@@ -8,7 +8,7 @@ export default  function verifyUser(setUser) {
     const data = {
         userId: value.id
     }
-    fetch('http://localhost:8080/api/auth/verifyUser', {
+    fetch('https://ultimatepower4.herokuapp.com/api/auth/verifyUser', {
         headers: {
             "Content-type": "application/json;charset=UTF-8",
             'Accept': 'application/json',

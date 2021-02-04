@@ -3,7 +3,7 @@ export default async function getUserInfoById(userId){
         userId: userId
     }
 
-    let response = await fetch('http://localhost:8080/api/auth/informationuser', {
+    let response = await fetch('https://ultimatepower4.herokuapp.com/api/auth/informationuser', {
         headers: {
             "Content-type": "application/json;charset=UTF-8",
             'Accept': 'application/json'

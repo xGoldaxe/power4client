@@ -3,7 +3,7 @@ export default async function getUserInfoByPseudo(pseudo){
         pseudo: pseudo
     }
 
-    const response = await fetch('http://localhost:8080/api/auth/informationpseudo', {
+    const response = await fetch('https://ultimatepower4.herokuapp.com/api/auth/informationpseudo', {
         headers: {
             "Content-type": "application/json;charset=UTF-8",
             'Accept': 'application/json'

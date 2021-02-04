@@ -3,7 +3,7 @@ export default async function isInGame(userId) {
     const data = {
         userId: userId
     }
-    let response = await fetch('http://localhost:8080/api/auth/game/isingame', {
+    let response = await fetch('https://ultimatepower4.herokuapp.com/api/auth/game/isingame', {
         headers: {
             "Content-type": "application/json;charset=UTF-8",
             'Accept': 'application/json'

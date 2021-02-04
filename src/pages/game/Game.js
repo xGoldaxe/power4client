@@ -37,7 +37,7 @@ export default function Game() {
                 const data = {
                     gameId: slug
                 }
-                const response = await fetch('http://localhost:8080/api/auth/game/information', {
+                const response = await fetch('https://ultimatepower4.herokuapp.com/api/auth/game/information', {
                     headers: {
                         "Content-type": "application/json;charset=UTF-8",
                         'Accept': 'application/json'

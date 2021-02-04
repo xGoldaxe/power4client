@@ -5,7 +5,7 @@ export default async function getStats(userId){
         userId: userId
     }
 
-    let response = await fetch('http://localhost:8080/api/auth/stats/getStats', {
+    let response = await fetch('https://ultimatepower4.herokuapp.com/', {
         headers: {
             "Content-type": "application/json;charset=UTF-8",
             'Accept': 'application/json'
