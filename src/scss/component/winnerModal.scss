@@ -1,12 +1,11 @@
 .winnerModal {
-    width: 100%;
-    height: 100%;
-    min-height: 100vh;
-    min-width: 100vw;
+    height: 100vh;
+    width: 100vw;
     position: fixed;
+    top: 0;
     z-index: 3;
     font-size: 60px;
-
+    
 
     p {
         margin-block-start: 0;
@@ -26,7 +25,7 @@
     &__userView {
         position: relative;
         bottom: 10vh;
-        background: rgb(100, 86, 77);
+        background: white;
         max-width: 600px;
         width: 80vw;
         height: min-content;
@@ -36,31 +35,81 @@
         flex-direction: column;
         align-items: center;
         ///
-        padding: 20px 0 50px 0;
-        .userView {
-            text-align: center;
-            width: min-content;
-            height:min-content;
-            border: none;
+        padding: 300px 0 25px 0;
+        overflow: hidden;
+        img {
+            position: absolute;
+            top: 0;
         }
-        &__text {
-            display: flex;
+        &__unranked {
+            font-size: 50px;
+            position: absolute; 
+            top: 30%;
         }
-        button {
-            outline: none;
-            width: 150px;
-            height: 50px;
-            border: none;
-            color: white;
-            background: black;
-            border-radius: 20px;
-
-            margin-top: 50px;
-            cursor: pointer;
-            transition: linear .2s transform;
-            &:hover {
-                transform: scale(1.2);
+    
+        &__rankBox {
+            display : flex;
+            position: relative;
+            bottom: 25px;
+            &__beast {
+                p {
+                    font-size: 65px;
+                    text-align: left;
+                    font-weight: 900;
+                    position: relative;
+                }
+                height: 30px;
             }
+            &__container {
+                width: 30px;
+                height: 30px;
+                border: 5px solid $textColor;
+                transform: rotate(45deg);
+                margin: 0 15px;
+                
+                box-shadow: 0 0 20px lighten($textColor, 15%);
+                position: relative;
+                &:nth-child(2n) {
+                    position: relative;
+                    top: 15px;
+                }
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            &__full {
+                width: 100%;
+                height: 100%;
+                background-color: lighten($textColor, 30%);                
+            }
+        }
+
+
+        &__text {
+            p{
+                margin-top: 15px;
+                color: black;
+                font-weight: 900;
+            }
+            &__result {
+                font-size: 70px;
+            }
+        }
+    }
+}
+
+.winnerModal__userView--container {
+    position: relative;
+}
+
+@media screen and (max-width: 650px) {
+    .winnerModal__userView {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        bottom: 15vh;
+        &--container {
+            width: 100%;
         }
     }
 }

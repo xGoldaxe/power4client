@@ -3,7 +3,7 @@ export default async function getUserInfoById(userId){
         userId: userId
     }
 
-    const response = await fetch('http://localhost:8080/api/auth/informationuser', {
+    let response = await fetch('http://localhost:8080/api/auth/informationuser', {
         headers: {
             "Content-type": "application/json;charset=UTF-8",
             'Accept': 'application/json'
@@ -11,8 +11,6 @@ export default async function getUserInfoById(userId){
         method: "POST",
         body: JSON.stringify(data)
     })
-    const responseJson = await response.json()  // convert to json
-    return {
-        pseudo : responseJson.pseudo
-    } 
+    response = await response.json()  // convert to json
+    return response
 }

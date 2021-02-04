@@ -18,12 +18,6 @@ export default function Accueil() {
             socket.emit('allGamesReq');
         }
     }, [socket])
-    console.log('render');
-    function handleCreateGame() {
-        socket.emit('createGame', {
-            user: user
-        })
-    }
 
     const handleClick = (button) => {
         if(button === 'private') {
@@ -36,27 +30,22 @@ export default function Accueil() {
     }
 
     return (
-        <div>
-            <h1>PUISSANCE 4 ONLINE</h1>
-            <div className="accueil">
-                {user ?
-                    <>
-                        <button className="createGameButton" onClick={() => handleClick('private')}>Private game</button>
-                        {pvGameVisible && <PvGame user={user} onClick={handleClick}/>}
-                        <button className="createGameButton" onClick={() => handleClick('ranked')}>Ranked game</button>
-                        {rankedGameVisible && <RankedGame user={user} onClick={handleClick}/>}
-                    {/* <CreatedGames listGames={listGames}/> */}
-                    </>
-                    : 
-                    <div className="notConnectedWindow">
-                        <Link to="/login" className="createGameButton">Connection</Link>
-                        <Link to="/register" className="createGameButton">Create an account</Link>
-                    </div>
+        <div class="accueil">
+            {user ?
+                <>
+                    <button className="createGameButton" onClick={() => handleClick('private')}>Private game</button>
+                    {pvGameVisible && <PvGame user={user} onClick={handleClick}/>}
+                    <button className="createGameButton" onClick={() => handleClick('ranked')}>Ranked game</button>
+                    {rankedGameVisible && <RankedGame user={user} onClick={handleClick}/>}
+                {/* <CreatedGames listGames={listGames}/> */}
+                </>
+                : 
+                <div className="notConnectedWindow">
+                    <Link to="/login" className="createGameButton">Connection</Link>
+                    <Link to="/register" className="createGameButton">Create an account</Link>
+                </div>
 
-                }
-            </div>
-
-
+            }
         </div>
     )
 }

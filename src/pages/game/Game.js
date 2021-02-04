@@ -1,11 +1,11 @@
 import React, {useContext, useState, useEffect} from 'react'
 import UserView from '../../component/userView';
 import { UserContext } from '../../UserContext'
-import { AllCase } from './visualComponents'
+import { AllCase } from './components/allCase'
 import { SocketContext } from '../../SocketContext'
 import { useParams } from 'react-router-dom'
-import WinnerModal from './WinnerModal'
-import GamePlayerPreview from './GamePlayerPreview';
+import WinnerModal from './components/WinnerModal'
+import GamePlayerPreview from './components/GamePlayerPreview';
 
 export default function Game() {
     const { user } = useContext(UserContext)
@@ -22,8 +22,7 @@ export default function Game() {
             socket.emit('joinGameRoom', slug)
             //game state
             socket.on('gameState', (res)=>{
-                console.log(res)
-                setGameValue(res.game)
+                setGameValue(res)
             });
             //game over
             return () => {
@@ -68,20 +67,15 @@ export default function Game() {
             {gameValue !== null ?
             <>
                 {gameValue.playerTurn ?
-                    <>
+                    <div className="gamePlace">
                         {gameValue.winner &&
-                            <WinnerModal userId={gameValue.winner} />
+                            <WinnerModal userId={user.userId} gameValue={gameValue}/>
                         }
                         {/* <div className="game__type">
                             Normal game
                             <div className="game__type__bg"></div>
                         </div> */}
                         <div className="wholeGame">
-                            <div className="game__players">
-                                <GamePlayerPreview gameValue={gameValue} player={"host"}/>
-                                <GamePlayerPreview gameValue={gameValue} player={"opponent"}/>
-                            </div> 
-
                             <div className="gameContainer">
                                 {gameValue.moves.length === 0 && <div className="afkAdvertisor"><UserView userId={gameValue.playerTurn}/> 
                                     have to start the game or he will automatically lose in
@@ -90,11 +84,15 @@ export default function Game() {
                                 <AllCase onClick={handlePlay} gameValue={gameValue}/>
                             </div>
                             
-                            <div className="playerTurn">
+                            {/* <div className="playerTurn">
                                 <UserView userId={gameValue.playerTurn}/>
-                            </div>
+                            </div> */}
                         </div>
-                    </>      
+                        <div className="game__players">
+                            <GamePlayerPreview gameValue={gameValue} player={"host"} position={"left"}/>
+                            <GamePlayerPreview gameValue={gameValue} player={"opponent"} position={"right"}/>
+                        </div> 
+                    </div>      
                 :
                     <h1>Waiting for an opponent</h1>
                 }

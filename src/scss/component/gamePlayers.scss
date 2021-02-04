@@ -5,17 +5,187 @@
         width: 50%;
         display: flex;
         align-items: center;
-        height: 8vh;
-        font-size: 40px;
-        p {
-            margin-left: 50px;
-        }
+        justify-content: center;
+        height: 95px;
+        background: darken($background, 3%);
+        font-size: 50px;
+
+        position: relative;
+        padding-bottom: 15px;
         &__left {
+            border-right: 4px solid darken($background, 10%);
+            
             justify-content: flex-start;
+            padding-left: 110px;
+            &__time {
+                right: 20px;
+            }
+            &__profilePicture {
+                position: absolute;
+                top: 10px;
+                left: 0px;
+                img{
+                    width: 80px;
+                    height: 80px;
+                }
+            }
+            &__pawn {
+                right: 25%;
+                background: $yellow;
+            }
         }
         &__right {
+            border-left: 4px solid darken($background, 10%);
+
+            padding-right: 110px;
             justify-content: flex-end;
+            &__time {
+                left: 20px;
+            }
+            &__profilePicture {
+                position: absolute;
+                top: 10px;
+                right: 40px;
+                img{
+                    width: 80px;
+                    height: 80px;
+                }
+            }
+            &__pawn {
+                left: 25%;
+                background: $red;
+            }
+        }
+        
+
+        &__profile {
+            display :flex;
+            flex-direction: column;
+            &__pseudo {
+                font-size: 55px;
+                cursor: pointer;
+            }
+            &__rank {
+                font-size: 25px;
+            }
+        }
+        &__time {
+            font-size: 60px;
+            width: 120px;
+            position: absolute;
+        }
+        &__pawn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            transform: translateY(-50%);
+            animation: ease-in-out pawnMove 1s alternate infinite;
         }
     }
     
+}
+
+@keyframes pawnMove {
+    0% {
+        transform: translateY(-60%);
+    }
+    100% {
+        transform: translateY(-30%);
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .game__players__player__profile {
+        &__pseudo {
+            font-size: 45px;
+        }
+        &__rank {
+            font-size: 20px;
+        }
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .game__players {
+        &__player {
+            &__left {
+                padding-left: 20px;
+            } &__right {
+                padding-right: 20px;
+            }
+
+
+            &__profilePicture {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .game__players {
+        &__player {
+            &__left {
+                justify-content: center;
+                &__pawn {
+                    right: 0;
+                }
+            }&__right {
+                justify-content: center;
+                &__pawn {
+                    left: 0;
+                }
+            }
+            &__time {
+                top: 0;
+                left: 50%;
+                transform: translate(-50%, -100%);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .game__players {
+        &__player {
+            &__profile {
+                &__pseudo {
+                    font-size: 30px;
+                }
+                &__rank {
+                    font-size: 20px;
+                }
+            }
+            &__left {
+                border-right: 2px solid darken($background, 10%);
+            }
+            &__right {
+                border-left: 2px solid darken($background, 10%);
+            }
+            &__pawn {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .game__players__player {
+        &__profile {
+            &__pseudo {
+                font-size: 25px;
+            }
+            &__rank {
+                font-size: 15px;
+            }
+        }
+        &__time {
+            font-size: 50px;
+            width: 100%;
+            text-align: center;
+        }
+    }
 }

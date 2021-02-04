@@ -16,13 +16,13 @@ export function AllCase({ onClick, gameValue }) {
 
     if(gameValue.moves.length>0){
         gameValue.moves.forEach(move => {
-            if(move.player === gameValue.host) {
+            if(move.player === gameValue.host.id) {
                 caseVerifyed.push({
                     case : move.value,
                     value : 'host'
                 });
             }
-            if(move.player === gameValue.opponent) {
+            if(move.player === gameValue.opponent.id) {
                 caseVerifyed.push({
                     case : move.value,
                     value : 'opponent'

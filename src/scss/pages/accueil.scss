@@ -54,6 +54,10 @@
         height: 100%;
         position: absolute;
     }
+
+    &__return {
+        display: none;
+    }
     &__tab {
         display: flex;
         width: 100%;
@@ -84,6 +88,11 @@
         h2 {
             font-size: 50px;
             margin-block-end: 0;
+        }
+        &__buttonCreate {
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
         button {
             width: 50%;
@@ -193,5 +202,98 @@
                 margin-block-end: 20px;
             }
         }
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .pvGame {
+        width: 100vw;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 0;
+        position: relative;
+        margin-top: 0px;
+        top: 0;
+        left: 0;
+
+        display: flex;
+        flex-direction: column;
+        &__return {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: darken(white, 10%);
+        }
+        &__tab {
+            display: flex;
+            width: 100%;
+            div {
+                height: 75px;
+                font-size: 50px;
+            }
+        }
+        &__create {
+            position: relative;
+            overflow-Y: auto;
+            h2 {
+                font-size: 50px;
+                text-align: center;
+            }
+            button {
+                width: 100%;
+                height: 150px;
+                bottom: 0;
+                border: none;
+                border-top: 5px solid $textColor;
+                font-size: 40px;
+            }
+            &__timeContainer {
+                margin-top: 0px;
+
+                width: 90%;
+                flex-direction: column;
+            }
+            input {
+                width: 80%;
+                font-size: 50px;
+            }
+            &__linkBox {
+                max-width: 100vw;
+                &__text{
+                    width: 90vw;
+                    font-size: 30px;
+                    text-align: center;
+                }
+                &__copy {
+                    display: none;
+                }
+            }
+            &__buttonCreate {
+                width: 100%;
+                button {
+                    min-height: 100px;
+                    position: relative;
+                    top: 30px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .pvGame__create__linkBox__text{
+        font-size: 20px;
+        border: none;
+        border-top: 3px solid $textColor;
+        border-bottom: 3px solid $textColor;
+    }
+    .pvGame__create {
+        p {
+            display: none;
+        }
+
     }
 }

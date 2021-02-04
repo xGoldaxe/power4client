@@ -1,15 +1,13 @@
 import React, { useState, useContext, useRef, useEffect } from 'react'
-import getGameInfo from '../lib/getGameInfo';
-import { io } from 'socket.io-client';
 import { SocketContext } from '../SocketContext'
 import { useHistory } from 'react-router';
-import secondToReadable from '../lib/secondToReadable'
+import secondToReadable from '../lib/time/secondToReadable'
 import TimeBlock from './TimeBlock'
 import { motion } from 'framer-motion'
-
+import cross from '../images/cross.svg'
 
 export default function PvGame({user, onClick}) {
-    const { socket, setSocket } = useContext(SocketContext)
+    const { socket } = useContext(SocketContext)
     const [tab, setTab] = useState('join')
     let createClass = '';
     let joinClass = '';
@@ -45,6 +43,7 @@ export default function PvGame({user, onClick}) {
                  }}
                 transition={{duration: 0.4}}
             >
+                <div className="pvGame__return" onClick={() => onClick('private')}><img src={cross} /></div>
                 <div className="pvGame__tab">
                     <div onClick={() => {setTab('create')}} className={createClass}>Create</div>
                     <div onClick={() => {setTab('join')}} className={joinClass}>Join</div>
@@ -75,6 +74,10 @@ function Join({ user, socket }) {
                 setError(true)
             }
         })
+
+        return () => {
+            socket.removeAllListeners('joinedPvGame')
+        }
     }, [])
 
     const handleClick = function() {
@@ -127,6 +130,8 @@ function Create({ user, socket }) {
         return () => {
             if(gameValue) {
                 console.log('lets goo')
+                socket.removeAllListeners('joinedPvGame')
+                socket.removeAllListeners('createdPvGame')
                 socket.emit('deletePvGame', {gameId : gameValue._id})
             }
         }
@@ -155,10 +160,14 @@ function Create({ user, socket }) {
                         <TimeBlock time='3:00' timeSelected={timeSelected} onClick={(time) => setTimeSelected(time)} />
                         <TimeBlock time='5:00' timeSelected={timeSelected} onClick={(time) => setTimeSelected(time)} />
                     </div>
-                    <button onClick={() => createGame(
-                        parseInt(timeSelected.split(':')[0])*60 + (parseInt(timeSelected.split(':')[1])),
-                        socket
-                    )}>Lets go</button>
+                    
+                    <div className="pvGame__create__buttonCreate">
+                        <button 
+                        onClick={() => createGame(
+                            parseInt(timeSelected.split(':')[0])*60 + (parseInt(timeSelected.split(':')[1])),
+                            socket
+                        )}>Lets go</button>
+                    </div>
                     {/* this button create a game => if the creator is already in game, redirect on it instead */}
                 </>
                 :

@@ -11,10 +11,12 @@ body{
 
 #root {
     width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
     align-items: center;
 
     h1 {
@@ -38,8 +40,59 @@ body{
     overflow-wrap: break-word;
 }
 
+p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
 .flex {
     width: 100vw;
     display: flex;
     justify-content: space-around;
+}
+
+.profilePicture {
+    position: relative;
+    width: 55px;
+    height: 55px;
+    margin-left: 15px;
+
+    img{
+        background: rgb(182, 61, 61);
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        box-shadow: 0 0 0px rgb(51, 204, 51);
+        transition: linear 0.3s box-shadow;
+        &:hover {
+            box-shadow: 0 0 8px rgb(51, 204, 51);
+        }
+    }
+    &__connectionState {
+        position: absolute;
+        top: 75%;
+        right: 0%;
+
+
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: rgb(51, 204, 51);
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #root {
+        h1 {
+            font-size: 60px;
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    #root {
+        h1 {
+            font-size: 40px;
+        }
+    }
 }

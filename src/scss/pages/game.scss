@@ -2,13 +2,16 @@ $gameBg: rgb(124, 123, 228);
 
 .wholeGame {
     width: min-content;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .game {
     width: 100vw;
+    flex-grow: 1;
     position: relative;
     display: flex;
     justify-content: center;
@@ -65,7 +68,7 @@ $gameBg: rgb(124, 123, 228);
             width: 80%;
             height: 80%;
             border-radius: 50%;
-            background-color: $background;
+            background-color: lighten($background, 10%);
         }
     }
 }
@@ -107,5 +110,66 @@ $gameBg: rgb(124, 123, 228);
     box-shadow: 0 0 10px darken($darkBackground, 30%);
     div {
         display: inline;
+    }
+}
+
+.gamePlace {
+    width: 80%;
+    max-width: 1300px;
+
+    background: lighten($background, 10%);
+    box-shadow: 0 0 20px darken($background, 20%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media screen and (max-width: 1300px) {
+    .afkAdvertisor {
+        top: -8%;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0 0 5px darken($darkBackground, 30%);
+    }    
+}
+
+@media screen and (max-width: 1000px) {
+    .gameContainer {
+        transform: scale(0.8);
+    }
+    .gamePlace {
+        width: 100%;
+    }
+
+    .afkAdvertisor {
+        width:100%;
+        box-shadow: none;
+        font-size: 30px;
+        top: 0;
+        left: -15px;
+        transform: translateY(-120%);
+    }  
+}
+
+@media screen and (max-width: 750px) {
+    .gameContainer {
+        transform: scale(0.6);
+    }
+    .afkAdvertisor {
+        transform: translateY(-150%);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .gameContainer {
+        transform: scale(0.5);
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+    .gameContainer {
+        transform: scale(0.4);
     }
 }

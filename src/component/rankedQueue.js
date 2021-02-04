@@ -1,11 +1,10 @@
 import React, { useState, useContext, useRef, useEffect } from 'react'
-import getGameInfo from '../lib/getGameInfo';
-import { io } from 'socket.io-client';
 import { SocketContext } from '../SocketContext'
 import { useHistory } from 'react-router';
-import secondToReadable from '../lib/secondToReadable'
+import secondToReadable from '../lib/time/secondToReadable'
 import TimeBlock from './TimeBlock';
 import { motion } from 'framer-motion'
+import cross from '../images/cross.svg'
 
 
 
@@ -36,6 +35,7 @@ export default function RankedGame({user, onClick}) {
                  }}
                 transition={{duration: 0.4}}
             >
+                <div className="pvGame__return" onClick={() => onClick('ranked')}><img src={cross} /></div>
                 <CreatedQueue user={user} socket={socket}/>
             </motion.div>
         </div>

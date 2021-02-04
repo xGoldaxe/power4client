@@ -25,7 +25,7 @@ function App() {
   const valueSocket = useMemo(() => ({socket, setSocket}), [])
 
   return (
-    <div>
+    <>
         <SocketContext.Provider value={{socket, setSocket}}>
           <UserContext.Provider value={{user, setUser}}>
             <Router>
@@ -38,7 +38,7 @@ function App() {
             </Router>
           </UserContext.Provider>
         </SocketContext.Provider>
-    </div>
+    </>
   );
 }
 

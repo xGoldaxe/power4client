@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useHistory } from 'react-router'
-import getUserInfoById from '../lib/getUserInfoById'
+import getUserInfoById from '../lib/user/getUserInfoById'
 
 export default function UserView({userId}) {    
     const [state, setState] = useState({
@@ -25,7 +25,7 @@ export default function UserView({userId}) {
     return (
         <>
             {state.loading === true ? "loading ..." :
-                <div onClick={() => history.push(`/profile/${state.userInfo.pseudo}`)}>{state.userInfo.pseudo}</div>
+                <span onClick={() => history.push(`/profile/${state.userInfo.pseudo}`)}>{state.userInfo.pseudo}</span>
             }
         </>
     )
